@@ -1,0 +1,15 @@
+[package]
+name = "mre-leptosfmt-nested-vec-view"
+description = "Minimal reproducible example of nested views formatting bug with leptosfmt"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+leptos = { version = "0.2.5", default-features = false, features=["csr"]}
+console_log = "1.0.0"
+log = "0.4.17"
+console_error_panic_hook = "0.1.7"
+wasm-bindgen = "0.2.84"
