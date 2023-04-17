@@ -7,7 +7,6 @@ A nested `view!` inside a vector with `vec![ ... ]` is formatted incorrectly. In
 ```rust
 vec![
     view!{ cx, <button class="button-foo button-bar button-baz">"button 1"</button>},
-    view!{ cx, <button class="button-foo button-bar button-baz">"button 2"</button>},
 ]
 ```
 
@@ -16,9 +15,20 @@ is converted to
 ```rust
 vec![
     view! { cx, < button class = "button-foo button-bar button-baz" > "button 1" </
-    button > }, view! { cx, < button class = "button-foo button-bar button-baz" >
-    "button 2" </ button > },
+    button > },
 ]
+```
+
+Or unwrapping lines:
+
+```rust
+vec![
+    view!{ cx, <button class="button-foo">"button 1"</button>},
+]
+```
+
+```rust
+vec![view! { cx, < button class = "button-foo" > "button 1" </ button > },]
 ```
 
 ## To reproduce
